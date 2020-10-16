@@ -6,7 +6,9 @@ from pygame.sprite import Group
 import game_func as gf
 from statics import Stat
 from button import Button
-from scoreboard import Scoreboard 
+from scoreboard import Scoreboard
+from bg import BG
+
 
 def run_game():
     pygame.init()
@@ -21,6 +23,7 @@ def run_game():
     gf.new_fleet(screen, setg, aliens, ship)
     play_button = Button(screen, 'START')
     sb = Scoreboard(screen, setg, stats)
+    bg = BG(screen)
 
     #game starts here
     while True:#main loop of the game
@@ -31,7 +34,7 @@ def run_game():
                 , setg, ship, stats, sb )
             gf.alien_update(sb, aliens, setg, ship, stats, screen, bullets)
    
-        gf.scr_update(setg, screen, ship, aliens, bullets, stats, play_button, sb )
+        gf.scr_update(setg, screen, ship, aliens, bullets, stats, play_button, sb , bg)
 
 
        

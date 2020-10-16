@@ -3,7 +3,6 @@ import pygame
 from bullet import Bullet
 from alienship import Alien
 from time import sleep
-
 def start_game(sb, screen, setg, stats, aliens, ship, bullets):
 	setg.initial_speed()
 	pygame.mouse.set_visible(False)
@@ -26,6 +25,9 @@ def keydown_event(sb, event,screen, ship, setg, bullets, stats, aliens):
 	elif event.key == pygame.K_SPACE:
 		fire_bull(screen, setg, ship, bullets)
 	elif event.key == pygame.K_q:
+		filename = 'highscore.txt'
+		with open(filename, 'w') as file:
+			file.write(str(stats.high_score))
 		sys.exit()
 	elif event.key == pygame.K_p:
 		start_game(sb, screen, setg, stats, aliens, ship, bullets)
@@ -46,6 +48,9 @@ def chk_events(sb, screen, ship,setg, bullets, stats, play_button, aliens):
 	#for keyboard and mouse movements
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT :
+			filename = 'highscore.txt'
+			with open(filename, 'w') as file:
+				file.write(str(stats.high_score))
 			sys.exit()
 		elif event.type == pygame.KEYDOWN:
 			keydown_event(sb, event, screen, ship, setg, bullets, stats, aliens)
@@ -112,7 +117,7 @@ def create_alien(screen, setg, aliens, width
 	aliens.add(new_alien)
 
 def get_rownumber(setg, height1, height2 ):
-	avail_height = setg.scr_height - 3*height1 - height2
+	avail_height = setg.scr_height - 4*height1 - height2
 	number_of_rows  = avail_height//(2*height1)
 	#number_of_rows = 3
 	return number_of_rows  
@@ -169,11 +174,12 @@ def alien_update(sb, aliens, setg, ship, stats, screen , bullets):
 
 
 def scr_update(setg, screen, ship, aliens, bullets
-	, stats, play_button, sb ):
+	, stats, play_button, sb, bg ):
 #Redraw the screen during each pass through the loop.
     #Its old position will be colored over by the background.
     if stats.active_game:
-    	screen.fill(setg.bg_color)
+    	#screen.fill(setg.bg_color)
+    	bg.show1()
     	for bullet in bullets.sprites():
     		bullet.show()
     	ship.show()
@@ -182,6 +188,7 @@ def scr_update(setg, screen, ship, aliens, bullets
 
     if not stats.active_game:
     	#screen.fill((255,0,0))
+    	bg.show()
     	play_button.show()
     #recently drawn screen
     pygame.display.flip()

@@ -2,7 +2,8 @@ class Stat():
 	def __init__(self, setg):
 		self.setg = setg
 		self.active_game = False
-		self.high_score = 0
+		with open('highscore.txt') as file:
+			self.high_score = int(file.read()) if file else 0
 		self.reset_stats()
 
 	def reset_stats(self):

@@ -7,12 +7,14 @@ class Button():
 		self.screen_rect = self.screen.get_rect()
 
 		self.width, self.height = 200, 50
-		self.button_color = (0,200,0)
+		self.button_color = (204,0,68)
 		self.text_color = (255, 255, 255)
 		self.font = pygame.font.SysFont(None, 48)
 		#nonr make default font
 		self.rect = pygame.Rect(0,0, self.width, self.height )
 		self.rect.center = self.screen_rect.center
+		self.rect.bottom = self.screen_rect.bottom - 200
+		self.rect.right -= 20
 
 		self.render_text(msg)
 

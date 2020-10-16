@@ -7,16 +7,18 @@ class Ship():
 		self.left  = False
 		self.setg=  settings
 
-		self.image = pygame.image.load("images/ship1.bmp")
+		self.image = pygame.image.load("images/shipf.png")
 		self.rect = self.image.get_rect()
 		self.rect_scrn = self.screen.get_rect()
 
 		self.rect.centerx = self.rect_scrn.centerx
-		self.rect.bottom = self.rect_scrn.bottom
+		self.rect.bottom = self.rect_scrn.bottom - 5
 		self.center = float(self.rect.centerx)
 		
 	def reset_it(self):
-		self.rect.centerx = self.rect_scrn.centerx 
+		self.rect.centerx = self.rect_scrn.centerx
+		self.center = float(self.rect.centerx)
+ 
 
 	def update(self):
 		if self.right and self.rect.right < self.rect_scrn.right:
