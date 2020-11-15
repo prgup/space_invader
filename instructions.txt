@@ -1,0 +1,18 @@
+Keystrokes:
+
+1. P or left click on dialog to start game.
+2. Q or cloase the window to end the game.
+3. Arrow keys to move spaceship.
+4. Space bar to shoot missiles.
+
+Basic gameplay: 
+
+1. The player controls the spaceship equipped with anti-satellite missile system at the bottom of the screen, which can move only horizontally. The aliens moves both horizontally and vertically (approaching the spaceship).  The spaceship can be controlled to shoot missiles to destroy the aliens.  If an alien is shot by the spaceship, it is destroyed. However, the position of the aliens will not be reset if the spaceship is lost.  The initial number of lives is Four.
+
+2. Alien behavior: The aliens are aligned in a rectangular formation, floating slowly in horizontal direction.  As the formation reaches one side, the aliens approach the bottom by a certain amount and start floating in the opposite horizontal direction.  The aliens moves faster and faster as they come closer to the bottom.  Any column of the alien may shoot a laser towards the spaceship at a random time.
+
+3. Scores: Each eliminated alien is worth of minmun 50 points.
+
+4. Completing a level: When all aliens are eliminated, the level is completed.  If the player's score is higher than the stored high score, the new high score is stored.  No signature (i.e. record holder name) is needed for the high score.
+
+5. Game over: When all lives have been lost, or the aliens have reached at he bottom of screen (successfully invaded the planet), the game ends and a game over screen is shown in the playfield.  If the player's score is higher than the stored high score, the new high score is stored.  After the player hits any key, the game is reset to the title screen.
